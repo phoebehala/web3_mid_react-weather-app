@@ -1,24 +1,34 @@
-import logo from './logo.svg';
+
 import './App.css';
+import React from 'react';
+import Navbar from './components/Navbar';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+const api ={
+  key: "3604b1ba5a1968ab01e1c8e3be99e1ec",
+  base: "api.openweathermap.org/data/2.5/"
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Router>
+      <Navbar />
+      <Switch>
+        <Route path='/' exact />
+      </Switch>
+    </Router>
+
+
+      <main className="search-box">
+        <input className="search-bar"
+                type="text"
+                placeholder="Searching...">
+            
+        </input>
+
+      </main>
+    </>
   );
 }
 
