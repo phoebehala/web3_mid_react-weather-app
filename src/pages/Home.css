@@ -32,9 +32,10 @@ main{
 
 
 .error-message{
-    position: relative;
-    top: 430px;
-    text-align: center;
+    position: absolute;
+    top: 500px;
+    right: 50%;
+    transform: translateX(50%);
     /* color: rgb(101, 32, 53); */
     color: red;
     font-size: 1.2em;
@@ -105,7 +106,7 @@ main{
     text-align: center;
 
     position: relative;
-    top: 500px;
+    top: 485px;
   }
 
 .line{
