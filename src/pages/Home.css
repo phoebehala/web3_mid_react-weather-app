@@ -1,0 +1,144 @@
+main{
+    height: 100vh;
+    /* background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.75)); */
+    background-image: url('../assets/vancouverBg.jpeg');
+    background-size: cover;
+    background-repeat: none;
+    padding: 25px;
+
+    
+}
+.patch{
+    height: 800px;
+}
+
+@media (max-width: 569px){
+    .patch{
+        height: 2400px;
+    }  
+}
+@media (max-width: 440px){
+    .patch{
+        height: 2600px;
+    }  
+}
+@media (max-width: 300px){
+    .patch{
+        height: 2800px;
+    }  
+}
+
+
+
+.error-message{
+    position: relative;
+    top: 430px;
+    text-align: center;
+    /* color: rgb(101, 32, 53); */
+    color: red;
+    font-size: 1.2em;
+
+}
+
+
+.search-box {
+    width: 40%;
+    position: absolute;
+    top: 80vh;
+    right: 50%;
+    transform: translateX(50%);
+
+  
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    /* margin: 20px; */
+    border-radius: 2px;
+}
+.search-box .search-bar{
+    width: 100%;
+    min-width: 230px;
+    display: block;
+    padding: 15px;
+  
+    appearance: none;
+    background: none;
+    border: none;
+    outline: none;
+  
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 0px 0px 0px 16px;
+    box-shadow: 0px 5px rgba(0, 0, 0, 0.2);
+  
+    /* margin-top: -25px; */
+  
+    color: #313131;
+    font-size: 20px;
+  
+    transition: 0.4s ease;
+}
+  
+.search-box .search-bar:focus {
+    background-color: rgba(255, 255, 255, 0.75);
+}  
+
+
+
+.location-box .location{
+    position: relative;
+    top: 250px;
+ 
+    color: #FFF;
+    font-size: 32px;
+    font-weight: 500;
+    text-align: center;
+    text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+}
+
+
+
+
+
+.weather-box{
+    text-align: center;
+
+    position: relative;
+    top: 500px;
+  }
+
+.line{
+    width: 20%;
+    margin: 0px auto 0px auto;
+    text-shadow: 3px 8px rgba(0, 0, 0, 0.5);
+}
+  
+.weather-box .temp {
+    position: relative;
+    display: inline-block;
+    margin: 10px auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+  
+    padding: 10px 15px;
+  
+    color: #FFF;
+    font-size: 30px;
+    font-weight: 900;
+  
+    text-shadow: 3px 3px 1px rgba(50, 50, 70, 0.5);
+    /* text-shadow: 3px 3px rgba(0, 0, 0, 0.5); */
+    text-align: center;
+    box-shadow: 3px 2px rgba(0, 0, 0, 0.2);
+}
+  
+.weather-box .weather {
+    color: #FFF;
+    font-size: 18px;
+    font-weight: 700;
+    text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+}
+
+
+
+
+  

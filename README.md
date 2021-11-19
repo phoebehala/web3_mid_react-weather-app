@@ -1,3 +1,14 @@
+dark
+rgba(28, 27, 27)
+
+primary blue
+rgba(32, 60, 102)
+== #203c66
+
+structure :( 
+use .patch in home.css to fix the issue with Footer placement
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
