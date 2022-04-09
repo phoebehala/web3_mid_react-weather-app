@@ -22,6 +22,7 @@ function Navbar() {
                         W&N <i className="fab fa-typo3" />
                     </Link>
 
+                    {/* menu-icon is show when screen width less than 960 */}
                     <div className="menu-icon" onClick={handleClick}>
                         {/* if click is true, show hamburger, otherwise show cross  */}
                         <i className={click? "fas fa-times" : "fas fa-bars"}></i>
