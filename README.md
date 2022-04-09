@@ -1,4 +1,4 @@
-# react-weather-app
+# React Weather App
 > Showing weather and News fetching form API.
 > Live demo [_here_](https://affectionate-bartik-410b6a.netlify.app).
 
