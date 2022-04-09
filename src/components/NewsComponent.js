@@ -10,9 +10,9 @@ const News = () => {
 
     return (
         <div className="newsComponent-container">
-            <h2 className="head__text">Top 20 business headlines in the US right now</h2>
+            <h2 className="head__text">Top business headlines right now</h2>
             <div className="all__news">
-            {data ? data.articles.map((eachNews, index)=>{
+            {data ? data.news.map((eachNews, index)=>{
     
                 return (
                      <div className="news" key={index}>
