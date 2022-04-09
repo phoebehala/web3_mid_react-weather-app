@@ -15,7 +15,7 @@ const Footer = () => {
                 <div className="input-area">
                     <form >
                         <input type="email" name="email" placeholder="Your Email" className="footer-input" />
-                        <Button buttonSyle='btn--outline'> Subscribe</Button>
+                        <Button buttonStyle='btn--outline'> Subscribe</Button>
                     </form>
                 </div>
                 <h5 className="Copyright">Copyright <i class="far fa-copyright"></i> 2021 Phoebe Yu</h5>
