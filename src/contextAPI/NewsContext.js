@@ -18,8 +18,8 @@ export const FetchNews = (props) => {
 
   useEffect(() => {
     axios.get(URL, options)
-      // .then((res) => console.log(res))
-      .then((response) => setData(response.data))
+      //.then((res) => console.log(res.data.news))
+      .then((response) => setData(response.data.news.filter((d)=>d.title && d.urlToImage)))
       .catch((error) => console.log(error));
   }, []);
 

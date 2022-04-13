@@ -7,17 +7,18 @@ import './NewsComponent.css';
 const News = () => {
 
     const {data} = useContext(NewsContext)
+    console.log(data);
 
     return (
         <div className="newsComponent-container">
             <h2 className="head__text">Top business headlines right now</h2>
             <div className="all__news">
-            {data ? data.news.map((eachNews, index)=>{
+            {data ? data.map((eachNews, index)=>{
     
                 return (
                      <div className="news" key={index}>
            
-                        <h1 className="news__title">{eachNews.title}</h1>
+                        <h2 className="news__title">{eachNews.title}</h2>
                         <img className="news__img" src={eachNews.urlToImage}  alt="image" style={{ width: "100%" }} />
                         <p className="news__desc">{eachNews.description}</p>
                         <span className="news__author">{eachNews.author}</span> <br />
