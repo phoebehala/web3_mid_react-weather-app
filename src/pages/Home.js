@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import '../App.css'
 import './Home.css'
 import WeatherComponent from '../components/WeatherComponent'
@@ -26,6 +26,10 @@ const Home = () => {
         console.log(city);
         setQuery(city)
     }
+
+
+
+
     return (
         <div>
             <main>

@@ -1,6 +1,7 @@
 import styled  from "styled-components";
 
 import React from 'react'
+import { useState, useEffect } from 'react';
 
 import { VscPerson } from 'react-icons/vsc';
 import { BiWind } from 'react-icons/bi';
@@ -115,7 +116,7 @@ const InfoIcon = styled.h3`
   width: 36px;
   height: 36px;
 
-  border:2px yellow
+  border:2px yellow;
 `;
 const InfoLabel = styled.span`
   display: flex;
@@ -162,6 +163,7 @@ const WeatherComponent = ({data}) => {
 
     // if data.weather[0].icon contains 'd', which means it's day otherwise night
     const isDay = data.weather[0].icon?.includes('d')  
+
     const getTime = (timeStamp) => {
         return `${new Date(timeStamp * 1000).getHours()} : ${new Date(timeStamp * 1000).getMinutes()}`
     }
@@ -169,8 +171,66 @@ const WeatherComponent = ({data}) => {
     const latitude = data.coord.lat;
     const longitude = data.coord.lon;
 
-
+    console.log("targed city's coordinate: ", latitude, longitude );
    
+    /*
+    const [userLatitude, setUserLatitude] = useState('')
+    const [userLongitude, setUserLongitude] = useState('')
+    const [userLocationOffSet, setUserLocationOffSet] = useState('');
+    const [targetLocationOffSet, setTargetLocationOffSet] = useState('')
+    const [hoursDiff, setHoursDiff] = useState(null)
+
+    function success(position) {
+      //let userLatitude  = position.coords.latitude;
+      //let userLongitude = position.coords.longitude;
+      setUserLatitude(position.coords.latitude)
+      setUserLongitude(position.coords.longitude)
+    }
+    useEffect(()=>{
+      navigator.geolocation.getCurrentPosition(success);
+    },[])
+
+    useEffect(()=>{
+      setUserLocationOffSet( Math.floor(userLongitude/15) )  // 15 degrees of longitude = 1 hour difference
+    },[userLongitude])
+    useEffect(()=>{
+      setTargetLocationOffSet( Math.floor(longitude/15) )  // 15 degrees of longitude = 1 hour difference
+    },[longitude])
+
+
+    console.log({userLocationOffSet});
+
+    useEffect(()=>{
+      console.log(userLatitude, userLongitude);
+
+      if (userLongitude){
+
+         //let diff = Math.abs(userLongitude-longitude)
+        //let diff = longitude-userLongitude
+        //let calculateDiff = diff/15  // 15 degrees of longitude = 1 hour difference
+        //setHoursDiff(Math.floor(calculateDiff))
+        setHoursDiff(targetLocationOffSet-userLocationOffSet)
+      }
+    },[targetLocationOffSet, userLocationOffSet])
+    console.log({hoursDiff});
+    console.log({userLongitude});
+    console.log({targetLocationOffSet});
+*/
+    const unixToLocalTime = (unixSeconds, timezone) => {
+      // console.log(new Date(1650926895 * 1000))
+
+      // unixSeconds ---> (UTC) sunrise / sunset time
+      // timezone ---> city's timezone
+      let time = new Date((unixSeconds + timezone) * 1000)
+        .toISOString() // Date object methods
+        .match(/(\d{2}:\d{2})/)[0]; // Regular Expressions (RegEx)
+    
+      return time.startsWith("0") ? time.substring(1) : time;
+    };
+
+    console.log(unixToLocalTime(data.sys.sunrise, data.timezone))
+    console.log(unixToLocalTime(data.sys.sunset, data.timezone))
+
     
     return (
         <>
@@ -191,7 +251,10 @@ const WeatherComponent = ({data}) => {
 
         
             <WeatherInfoContainer>
-                <WeatherInfoComponent name={isDay? "sunset":"sunrise"} value={`${getTime(data.sys[isDay ? "sunset" : "sunrise"])}`}/>
+
+                <WeatherInfoComponent name={isDay? "sunset":"sunrise"} value={ isDay ? unixToLocalTime(data.sys.sunset, data.timezone) : unixToLocalTime(data.sys.sunrise, data.timezone) } />
+                {/* <WeatherInfoComponent name={isDay? "sunset":"sunrise"} value={`${getTime(data.sys[isDay ? "sunset" : "sunrise"] )}`}/> */}
+
                 <WeatherInfoComponent name="humidity" value={data.main.humidity}/>
                 <WeatherInfoComponent name="wind" value={data.wind.speed}/>
                 <WeatherInfoComponent name="feels_like" value={ Math.round(data.main.feels_like)} />

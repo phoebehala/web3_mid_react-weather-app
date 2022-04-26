@@ -55,3 +55,4 @@
 
 ## Room for Improvement
 - Structure of single page app
+- (Fixed) Convert unix to localTime for Sunrise or Sunset
